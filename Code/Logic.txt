@@ -33,22 +33,22 @@ void loop()
   bool a = digitalRead(LEFT);
   bool b = digitalRead(RIGHT);
   bool c = digitalRead(FORWARD);
-  if(a==1){digitalWrite(LEFTLED,HIGH);stop();}
-  if(b==1){digitalWrite(RIGHTLED,HIGH);stop();}
-  if(c==1){digitalWrite(FORWARDLED,HIGH);stop();}
+  if(a==0){digitalWrite(LEFTLED,HIGH);stop();}
+  if(b==0){digitalWrite(RIGHTLED,HIGH);stop();}
+  if(c==0){digitalWrite(FORWARDLED,HIGH);stop();}
+  Serial.println((String)"Left: "+a+" Forward: "+c+" Right: "+b);
+  if(a==0||b==0||c==0)delay(30000);
   
-  if(a==1||b==1||c==1)delay(30000);
-  
-  Serial.println((String)"Left: "+digitalRead(LEFT)+" Forward: "+digitalRead(FORWARD)+" Rigth: "+digitalRead(RIGHT));
-    if ((b==0)&&(a==1)&&(c==0)){forward(); Serial.println("Robo Moving Forward"); }
-    if ((b==1)&&(a==1)&&(c==1)){forward(); Serial.println("Robo Moving Forward");}
-    if ((b==0)&&(a==1)&&(c==1)){softRight();Serial.println("Robo Moving softRight"); }
-    if ((b==0)&&(a==0)&&(c==1)){turnRight(); Serial.println("Robo Moving Right"); }
-    if ((b==1)&&(a==1)&&(c==0)){softLeft(); Serial.println("Robo Moving softLeft");}
-    if ((b==1)&&(a==0)&&(c==0)){turnLeft(); Serial.println("Robo Moving Left"); }
-    if ((b==1)&&(a==0)&&(c==1)){turnLeft(); Serial.println("Robo Moving Left"); }
-    if ((b==0)&&(a==0)&&(c==0)){turnLeft(); Serial.println("Robo Moving Left");}
-    
+ 
+    if ((a==0)&&(c==1)&&(b==0)){forward(); Serial.println("Robo Moving Forward"); }
+    if ((a==1)&&(c==1)&&(b==1)){forward(); Serial.println("Robo Moving Forward");}
+    if ((a==0)&&(c==1)&&(b==1)){softRight();Serial.println("Robo Moving softRight"); }
+    if ((a==0)&&(c==0)&&(b==1)){turnRight(); Serial.println("Robo Moving Right"); }
+    if ((a==1)&&(c==1)&&(b==0)){softLeft(); Serial.println("Robo Moving softLeft");}
+    if ((a==1)&&(c==0)&&(b==0)){turnLeft(); Serial.println("Robo Moving Left"); }
+    if ((a==1)&&(c==0)&&(b==1)){turnLeft(); Serial.println("Robo Moving Left"); }
+    if ((a==0)&&(c==0)&&(b==0)){turnLeft(); Serial.println("Robo Moving Left");}
+
 }
 
 void stop(){
