@@ -37,7 +37,7 @@ void loop()
   if(b==0){digitalWrite(RIGHTLED,HIGH);stop();}
   if(c==0){digitalWrite(FORWARDLED,HIGH);stop();}
   Serial.println((String)"Left: "+a+" Forward: "+c+" Right: "+b);
-  if(a==0||b==0||c==0)delay(30000);
+  if(a==0||b==0||c==0)delay(5000);
   
  
     if ((a==0)&&(c==1)&&(b==0)){forward(); Serial.println("Robo Moving Forward"); }
